@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to top right, #ffdde1, #ee9ca7);
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+h1 {
+  color: #ff4d6d;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 8px;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #ccc;
+  position: absolute;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="proposal">
+  <h1>Happy Propose Day 💘</h1>
+
+  <p>
+    Dear Mansi 🌸<br><br>
+    Somewhere between smiles,<br>
+    small talks, and quiet moments,<br>
+    you became very special to me 💖<br><br>
+    Will you be my Valentine? 💕
+  </p>
+
+  <button id="yes" onclick="showLetter()">Yes 💞</button>
+  <button id="no" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<script>
+function showLetter() {
+  document.body.innerHTML = `
+  <div class="card">
+    <h1>My Love Letter 💌</h1>
+
+    <p>
+      Dear Mansi 🌷,<br><br>
+
+      I don’t know exactly when it started,<br>
+      but you slowly became someone<br>
+      I think about more than I should 💖<br><br>
+
+      You make normal days feel special,<br>
+      and simple moments feel warm ✨<br><br>
+
+      I promise honesty, respect,<br>
+      and to always try to make you smile 😊<br><br>
+
+      This is me, choosing you,<br>
+      today and every day 💕<br><br>
+
+      Happy Valentine’s Day ❤️
+    </p>
+
+    <p style="color:#ff4d6d;">— Yours 💞</p>
+  </div>
+  `;
+}
+
+function moveNo() {
+  const no = document.getElementById("no");
+  no.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  no.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 400);
+</script>
+
+</body>
+</html>
